@@ -1,0 +1,22 @@
+.m-flex-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 5%;
+    gap: 3%;
+    background-color: #f5f5f576;
+    color: #fff;
+    flex-wrap: nowrap;
+}
+
+/* Add the necessary styles for mobile view */
+@media (max-width: 768px) {
+    .m-flex-container {
+        flex-direction: column; 
+        align-items: stretch; /* Adjusted alignment for better styling */
+        padding: 5%; 
+        gap: 5%;
+    }
+
+   
+}

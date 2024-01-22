@@ -1,0 +1,40 @@
+.flex-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 5%;
+    gap: 3%;
+    background-color: #fefefe;
+    color: #fff;
+    flex-wrap: nowrap;
+}
+
+/* Add the necessary styles for mobile view */
+@media (max-width: 768px) {
+    .flex-container {
+        flex-direction: column; 
+        align-items: stretch; /* Adjusted alignment for better styling */
+        padding: 5%; 
+    }
+
+    .card {
+        width: 100%; /* Make the image gallery take up full width in mobile view */
+        max-width: none;
+        padding-bottom: 10%; /* Remove max-width for full width */
+    }
+    
+    .ui-galleria-thumbnail {
+        max-width: 100%; /* Ensure thumbnails take up full width */
+        height: auto; /* Maintain aspect ratio */
+    }
+    
+    .ui-galleria-content {
+        max-width: 100%; /* Ensure content takes up full width */
+        height: auto; /* Maintain aspect ratio */
+    }
+    
+    .ui-galleria-preview {
+        max-width: 100%; /* Ensure preview takes up full width */
+        height: auto; /* Maintain aspect ratio */
+    }
+}
