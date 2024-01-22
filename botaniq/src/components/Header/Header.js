@@ -1,26 +1,28 @@
-
 import React from 'react';
 import { Menubar } from 'primereact/menubar';
 import { InputText } from 'primereact/inputtext';
 import { Badge } from 'primereact/badge';
-import { Avatar } from 'primereact/avatar';  
-import Logo from "../../assest/logo/logo.png"
-
+import { Avatar } from 'primereact/avatar';
+import Logo from "../../assest/logo/logo.png";
+import { Link } from 'react-router-dom';
 
 export default function TemplateDemo() {
     const itemRenderer = (item) => (
-        <a className="flex align-items-center p-menuitem-link">
+        <Link to={item.to} className="flex align-items-center p-menuitem-link">
             <span className={item.icon} />
             <span className="mx-2">{item.label}</span>
             {item.badge && <Badge className="ml-auto" value={item.badge} />}
             {item.shortcut && <span className="ml-auto border-1 surface-border border-round surface-100 text-xs p-1">{item.shortcut}</span>}
-        </a>
+        </Link>
     );
+
     const items = [
-        {
-            label: 'Home',
-            icon: 'pi pi-home'
-        },
+      {
+        label: 'Home',
+        icon: 'pi pi-home',
+        to: '/',
+        template: itemRenderer
+    },
         {
             label: 'Features',
             icon: 'pi pi-star'
@@ -32,57 +34,38 @@ export default function TemplateDemo() {
                 {
                     label: 'Trees',
                     icon: 'pi pi-bolt',
-                    
+                    to: '/trees',
                     template: itemRenderer
                 },
                 {
                     label: 'Plants',
                     icon: 'pi pi-server',
-                   
+                    to: '/plants',
                     template: itemRenderer
                 },
                 {
                     label: 'Ferns',
                     icon: 'pi pi-star',
-                   
+                    to: '/ferns',
                     template: itemRenderer
                 },
                 {
                     separator: true
                 },
-                {
-                    label: 'Templates',
-                    icon: 'pi pi-palette',
-                    items: [
-                        {
-                            label: 'Apollo',
-                            icon: 'pi pi-palette',
-                            badge: 2,
-                            template: itemRenderer
-                        },
-                        {
-                            label: 'Ultima',
-                            icon: 'pi pi-palette',
-                            badge: 3,
-                            template: itemRenderer
-                        }
-                    ]
-                }
             ]
         },
         {
             label: 'Contact',
             icon: 'pi pi-envelope',
-            badge: 3,
+            to: '/contact',
             template: itemRenderer
         }
     ];
 
-    const start = <img alt="logo" src={Logo} height="40" className="mr-2"></img>;
+    const start = <img alt="logo" src={Logo} height="40" className="mr-2" />;
     const end = (
         <div className="flex align-items-center gap-2">
             <InputText placeholder="Search" type="text" className="w-8rem sm:w-auto" />
-            
         </div>
     );
 
@@ -90,6 +73,5 @@ export default function TemplateDemo() {
         <div className="card">
             <Menubar model={items} start={start} end={end} />
         </div>
-    )
+    );
 }
-        
